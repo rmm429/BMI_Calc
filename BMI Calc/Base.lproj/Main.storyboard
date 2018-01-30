@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7f-dD-kEG">
-                                <rect key="frame" x="0.0" y="729" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="680" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="BMI" width="125" id="7Qn-D7-MOM">
                                         <connections>
@@ -288,8 +288,8 @@
         <image name="BMIChart" width="943" height="573"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="evH-zJ-d0F"/>
-        <segue reference="H7k-ea-1sQ"/>
+        <segue reference="J0c-AQ-Ch3"/>
+        <segue reference="hyx-Jr-34R"/>
         <segue reference="GGT-MV-xDo"/>
     </inferredMetricsTieBreakers>
 </document>

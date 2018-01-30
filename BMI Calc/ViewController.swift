@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        load()
+        
         textLbs.keyboardType = UIKeyboardType.numberPad
         textFeet.keyboardType = UIKeyboardType.numberPad
         textInches.keyboardType = UIKeyboardType.numberPad
@@ -109,6 +111,24 @@ class ViewController: UIViewController {
         {
             self.labelBMIDesc.text = "Your BMI is \(BMI)\nYou are underweight"
         }
+        
+        save()
+    }
+    
+    
+    func save()
+    {
+        let defaults = UserDefaults.standard
+
+        defaults.set(labelBMIDesc.text, forKey: "labelBMIDesc")
+        
+        defaults.synchronize()
+    }
+    
+    func load()
+    {
+        let defaults = UserDefaults.standard
+        labelBMIDesc.text = defaults.object(forKey: "labelBMIDesc") as?œ String
     }
     
 }
