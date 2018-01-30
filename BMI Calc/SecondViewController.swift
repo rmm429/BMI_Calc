@@ -18,6 +18,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Calling the load() function
+        load_Metric()
+        
         textKg.keyboardType = UIKeyboardType.decimalPad
         textMeters.keyboardType = UIKeyboardType.decimalPad
 
@@ -80,6 +83,39 @@ class SecondViewController: UIViewController {
         {
             self.labelBMIDesc.text = "Your BMI is \(BMI)\nYou are underweight"
         }
+        
+        //Calling the save() function
+        save_Metric()
+    }
+    
+    //Function that saves user-entered data and app-produced data
+    func save_Metric()
+    {
+        //Creating a standard UserDefaults called defaults
+        let defaults_Metric = UserDefaults.standard
+        
+        //Setting the text for labelBMIDesc
+        defaults_Metric.set(labelBMIDesc.text, forKey: "labelBMIDesc")
+        //Saving the text for textKg
+        defaults_Metric.set(textKg.text, forKey: "textKg")
+        //Saving the text for textMeters
+        defaults_Metric.set(textMeters.text, forKey: "textMeters")
+        
+        //Synchronizing defaults
+        defaults_Metric.synchronize()
+    }
+    
+    func load_Metric()
+    {
+        //Creating a standard UserDefaults called defaults
+        let defaults_Metric = UserDefaults.standard
+        
+        //Setting the labelBMIDesc text to the previously-saved data
+        labelBMIDesc.text = defaults_Metric.object(forKey: "labelBMIDesc") as? String
+        //Setting the textKg text to the previously-saved data
+        textKg.text = defaults_Metric.object(forKey: "textLbs") as? String
+        //Setting the textMeters text to the previously-saved data
+        textMeters.text = defaults_Metric.object(forKey: "textFeet") as? String
     }
     
     /*

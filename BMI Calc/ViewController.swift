@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Calling the load() function
         load()
         
         textLbs.keyboardType = UIKeyboardType.numberPad
@@ -112,23 +113,42 @@ class ViewController: UIViewController {
             self.labelBMIDesc.text = "Your BMI is \(BMI)\nYou are underweight"
         }
         
+        //Calling the save() function
         save()
     }
     
-    
+    //Function that saves user-entered data and app-produced data
     func save()
     {
+        //Creating a standard UserDefaults called defaults
         let defaults = UserDefaults.standard
 
+        //Setting the text for labelBMIDesc
         defaults.set(labelBMIDesc.text, forKey: "labelBMIDesc")
+        //Saving the text for textLbs
+        defaults.set(textLbs.text, forKey: "textLbs")
+        //Saving the text for textFeet
+        defaults.set(textFeet.text, forKey: "textFeet")
+        //Saving the text for textInches
+        defaults.set(textInches.text, forKey: "textInches")
         
+        //Synchronizing defaults
         defaults.synchronize()
     }
     
     func load()
     {
+        //Creating a standard UserDefaults called defaults
         let defaults = UserDefaults.standard
-        labelBMIDesc.text = defaults.object(forKey: "labelBMIDesc") as?œ String
+        
+        //Setting the labelBMIDesc text to the previously-saved data
+        labelBMIDesc.text = defaults.object(forKey: "labelBMIDesc") as? String
+        //Setting the textLbs text to the previously-saved data
+        textLbs.text = defaults.object(forKey: "textLbs") as? String
+        //Setting the textFeet text to the previously-saved data
+        textFeet.text = defaults.object(forKey: "textFeet") as? String
+        //Setting the textInches text to the previously-saved data
+        textInches.text = defaults.object(forKey: "textInches") as? String
     }
     
 }
